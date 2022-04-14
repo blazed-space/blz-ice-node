@@ -5,5 +5,6 @@
     "background": "#ffffff",
     "theme": "#000000",
     "author": "Blazed Labs LLC",
-    "publisher": "Blazed Publishing BD."
+    "publisher": "Blazed Publishing BD.",
+    "pages": ["index", "about", "contact"]
 }

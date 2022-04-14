@@ -1,10 +1,13 @@
 const fs = require('fs');
 //const lodash = require('lodash');
+//var domify = require('domify');
 //const path = require('path');
 //const manifestTemplate = fs.readFileSync('./src/data/manifest.template.json', 'utf8');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const ejs = require("ejs");
+const showdown  = require('showdown');
+var converter = new showdown.Converter();
 
 function saveFILE(path, object="", type="json"){
     let data = null;
@@ -36,7 +39,11 @@ function loadFILE(path,type="json",config={}){
         case "ejs":
             obj = ejs.render(raw, config);
             break;
+        case "md":
+            obj = converter.makeHtml(raw);
+            break;
         case "js":
+        case "css":
         defualt:
             obj = {raw};
             break;
@@ -70,13 +77,13 @@ function generateManifest(config){
     };
     saveFILE(manifestLocation, manifest);
 }
-function generateHTMLPage(config=null, page="index"){
+function generateHTMLPage(config=null, contentSrc="index"){
     // Compile head object
     //let template = ejs.compile(str, options);
     if(config === null){ config = generateConfigObject(); }
     config.fire = {
         header: "top",
-        content: "Content",
+        content: loadFILE(`./src/assets/md/${contentSrc}.md`, 'md', config),
         footer: "bottom"
     };
     config.ice = {
@@ -108,11 +115,13 @@ generateManifest(config);
 
 //let indexDocument = loadFILE("./src/index.html", "html");
 //saveFILE(path, indexDocument, "html");
+// iterate over each page and generate it
+for(var i = 0; i < config.site.pages.length; i++){
 
-let e = generateHTMLPage(config);
-//console.log(e);
-saveFILE("./public/index.html", e, "html");
-console.log(e);
+    let e = generateHTMLPage(config, config.site.pages[i]);
+    saveFILE(`./public/${config.site.pages[i]}.html`, e, "html");
+
+}
 //let data = JSON.stringify(manifest);
 //console.log(data);
 //fs.writeFileSync('student-2.json', data);
@@ -124,4 +133,6 @@ console.log(e);
     //    lodash.template()
     // }
     // = JSON.parse();
+
+    
 

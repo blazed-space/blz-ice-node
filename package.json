@@ -2,13 +2,11 @@
   "name": "blz-ice-node",
   "version": "1.0.0",
   "description": "SSG for Node.js",
-  "main": "server.js",
+  "main": "build.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node server.js",
-    "build-conf": "node build.js",
+    "publish": "node build.js",
     "build-html": "ejs ./src/assets/ejs/layout.ejs -f ./src/data/document.json -o ./src/index.html",
-    "build-js": "browserify app.js -o src/assets/js/bundle.js",
+    "build-js": "browserify src/assets/js/app.js -o public/js/bundle.js",
     "watch": "watchify app.js -o src/assets/js/bundle.js --debug --verbose"
   },
   "repository": {
@@ -32,8 +30,8 @@
     "browserify": "^17.0.0",
     "domify": "^1.4.1",
     "ejs": "^3.1.6",
-    "express": "^4.17.3",
-    "jsdom": "^19.0.0"
+    "jsdom": "^19.0.0",
+    "showdown": "^2.0.3"
   },
   "devDependencies": {
     "null": "^2.0.0"

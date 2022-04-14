@@ -11,14 +11,16 @@ To use, simply run the following commands:
 
 ```shell
 npm install
-npm run start
+npm run publish
 ```
 
-That will spin up a local development server on port 8080.
+That will output desired static pages in the /public/ directory.
+
+The list of pages to render can be found in the /src/data/site.json file under "pages". By default, each page will be selected from /src/assets/md.
 
 ## Deployment
 
-* TODO: Include deployment instructions.
+* Netlify: To deploy to Netlify, simply use the included "netlify.toml" file in the root of this repository, or if you wish you may customize it or swap it out for one of your choosing.
 
 ## Made with Love
 
