@@ -1,0 +1,9 @@
+{
+    "id": "blz-ice",
+    "name": "Blazed Ice Node",
+    "desc": "Example site for the Blazed ICE static site generator (SVELTE/FIRE).",
+    "background": "#ffffff",
+    "theme": "#000000",
+    "author": "Blazed Labs LLC",
+    "publisher": "Blazed Publishing BD."
+}
