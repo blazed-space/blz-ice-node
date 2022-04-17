@@ -53,8 +53,11 @@
 </footer>
         </blz-app>
         <section id="blz-js">
-            <script type="module" src="/js/bundle.ice.js"></script>
-            <script type="module" src="https://blazed.sbs/assets/js/fire.module.js"></script>
+            <!--<script type="module" src="/js/bundle.ice.js"></script>-->
+            <script type="module">
+                import { BlazedApp } from "https://blazed.sbs/assets/js/fire.module.js"; 
+                window.customElements.define('blz-app', BlazedApp);
+            </script>
             <noscript>
                 <div>
                     <p>For the best browsing experience, please enable JavaScript.</p>
