@@ -1,39 +1,16 @@
 {
   "name": "blz-ice-node",
-  "version": "1.0.0",
-  "description": "SSG for Node.js",
-  "main": "build.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "publish": "node build.js",
-    "build-html": "ejs ./src/assets/ejs/layout.ejs -f ./src/data/document.json -o ./src/index.html",
-    "build-js": "browserify src/assets/js/app.js -o public/js/bundle.js",
-    "watch": "watchify app.js -o src/assets/js/bundle.js --debug --verbose"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/blazed-space/blz-ice-node.git"
-  },
-  "keywords": [
-    "node",
-    "ice",
-    "blazed",
-    "fire",
-    "blz"
-  ],
-  "author": "blazed-space",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/blazed-space/blz-ice-node/issues"
-  },
-  "homepage": "https://github.com/blazed-space/blz-ice-node#readme",
   "dependencies": {
-    "browserify": "^17.0.0",
-    "domify": "^1.4.1",
-    "ejs": "^3.1.6",
-    "jsdom": "^19.0.0",
-    "showdown": "^2.0.3"
-  },
-  "devDependencies": {
-    "null": "^2.0.0"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }
